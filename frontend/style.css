@@ -1,0 +1,49 @@
+:root{--asphalt:#14201F;--paint:#F2C230;--mist:#EEF1EF;--route:#1F7A6D;--alert:#C8452F;--line:#D3DAD7;--white:#fff}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;background:var(--mist);color:var(--asphalt);display:flex;flex-direction:column}
+[hidden]{display:none!important}
+.top{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:var(--asphalt);color:var(--white)}
+.brand{font-weight:800;font-size:1.4rem;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.dash{width:28px;height:6px;background:repeating-linear-gradient(90deg,var(--paint) 0 8px,transparent 8px 12px)}
+nav{display:flex;gap:16px;align-items:center;font-size:.95rem}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--paint);outline-offset:2px}
+.link{background:none;border:0;color:inherit;text-decoration:underline;padding:4px}
+.primary{background:var(--paint);color:var(--asphalt);border:0;border-radius:8px;padding:12px 18px;font-weight:600;width:100%}
+.primary:disabled{opacity:.5;cursor:not-allowed}
+.secondary{background:none;border:2px solid var(--asphalt);border-radius:8px;padding:10px 16px;font-weight:600;width:100%;color:var(--asphalt)}
+.danger{color:var(--alert);border-color:var(--alert)}
+.auth{flex:1;display:grid;place-items:center;padding:24px;background:linear-gradient(var(--asphalt) 0 0) bottom/100% 38% no-repeat}
+.auth-card{background:var(--white);padding:32px;border-radius:12px;width:min(440px,100%);box-shadow:0 12px 40px rgba(0,0,0,.18)}
+h1{font-size:2.4rem;line-height:1;letter-spacing:-.03em;margin:0 0 8px;font-weight:800}
+.sub{margin:0 0 20px;color:#56635f}
+.tabs{display:flex;border-bottom:2px solid var(--line);margin-bottom:16px}
+.tab{flex:1;background:none;border:0;padding:10px;font-weight:600;color:#56635f;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab.on{color:var(--asphalt);border-color:var(--paint)}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:12px}
+input,select{display:block;width:100%;margin-top:4px;padding:11px;border:1.5px solid var(--line);border-radius:8px;font:inherit;background:var(--white)}
+.err{color:var(--alert);min-height:1.2em;margin:0 0 8px;font-size:.9rem}
+.app{flex:1;display:grid;grid-template-columns:400px 1fr;min-height:0}
+#map{grid-column:2;grid-row:1;min-height:300px}
+.panel{grid-column:1;grid-row:1;padding:20px;overflow:auto;background:var(--white);border-right:1px solid var(--line)}
+.panel h2{margin:0 0 14px;font-size:1.5rem;letter-spacing:-.02em}
+.panel .hint{color:#56635f;font-size:.9rem;margin:0 0 12px}
+.stop{position:relative;padding-left:22px}
+.stop:before{content:"";position:absolute;left:2px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--route)}
+.stop.drop:before{border-radius:2px;background:var(--asphalt)}
+.opts{display:grid;gap:8px;margin:14px 0}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--white);text-align:left;width:100%}
+.opt.on{border-color:var(--asphalt);background:var(--mist)}
+.opt b{font-size:1.15rem}
+.status{display:inline-block;padding:4px 10px;border-radius:99px;background:var(--paint);font-weight:600;font-size:.85rem;margin-bottom:12px}
+.card{border:1.5px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+.card p{margin:2px 0}
+.fare{font-size:1.8rem;font-weight:800;letter-spacing:-.02em}
+.steps{display:flex;gap:4px;margin:12px 0}
+.steps i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.steps i.done{background:var(--route)}
+dialog{border:0;border-radius:12px;padding:24px;width:min(520px,92vw);max-height:80vh}
+dialog::backdrop{background:rgba(20,32,31,.6)}
+@media(max-width:800px){.app{grid-template-columns:1fr;grid-template-rows:42vh 1fr}#map{grid-column:1;grid-row:1}.panel{grid-column:1;grid-row:2;border-right:0}}
+@media(prefers-reduced-motion:no-preference){.card,.opt{transition:border-color .15s}}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RideGo – book a ride in minutes</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="dash"></span>RideGo</div>
+  <nav id="nav" hidden>
+    <span id="who"></span>
+    <button class="link" id="btn-history">Trip history</button>
+    <button class="link" id="btn-logout">Log out</button>
+  </nav>
+</header>
+
+<main id="auth" class="auth" hidden>
+  <section class="auth-card">
+    <h1>Where to next?</h1>
+    <p class="sub">Sign in to book rides or start driving.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-mode="login">Log in</button>
+      <button class="tab" data-mode="register">Create account</button>
+    </div>
+    <form id="auth-form">
+      <div id="reg-only" hidden>
+        <label>Full name<input name="name" autocomplete="name"></label>
+        <label>I want to<select name="role"><option value="rider">Book rides</option><option value="driver">Drive and earn</option></select></label>
+        <label id="veh" hidden>Vehicle (model and plate)<input name="vehicle" placeholder="Maruti Dzire TN 09 AB 1234"></label>
+      </div>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Password<input name="password" type="password" required minlength="6" autocomplete="current-password"></label>
+      <p class="err" id="auth-err" role="alert"></p>
+      <button class="primary" type="submit" id="auth-submit">Log in</button>
+    </form>
+  </section>
+</main>
+
+<main id="app" class="app" hidden>
+  <div id="map"></div>
+  <aside class="panel" id="panel"></aside>
+</main>
+
+<dialog id="history"><h2>Trip history</h2><div id="history-list"></div><button class="primary" onclick="this.closest('dialog').close()">Close</button></dialog>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
